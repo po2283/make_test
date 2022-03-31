@@ -38,7 +38,7 @@ int main()
     }
     cout << endl;
 
-    cout << "정답을 입력하시오:" << endl;
+    cout << "정답을 입력하시오: " << endl;
     cin >> answer;
     user_question.have_answer(answer);
     cout << endl;

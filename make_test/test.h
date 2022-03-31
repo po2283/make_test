@@ -1,5 +1,7 @@
 #pragma once
 #include <string>
+#include<vector>
+#include<iostream>
 
 using namespace std;
 
@@ -11,28 +13,58 @@ using namespace std;
 
 class test {
 protected:
-	string question;
-	string example;
-	string answer;
+	vector<string> question;
+	vector<string> example;
+	vector<string> answer;
+	int correct;
+
 public:
 
-
-	test(){
-		question = "";
-		example = "";
-		answer = "";
-	}
+	test(){}
 	~test(){}
 
-	test(string q, string ex, string an) {
-		this->question = q;
-		this->example = ex;
-		this->answer = an;
+	/*문제를 입력받는 함수
+	문제를 받아가지고 벡터에다가 저장해야 한다.*/
+
+	void have_question(string q) {
+		question.push_back(q);
 	}
 
-	void print() {
-		cout << "question: " << question << endl << "example: " << example << endl << "answer: " << answer << endl;
-
+	void have_example(string ex) {
+		example.push_back(ex);
 	}
 
+	void have_answer(string an) {
+		answer.push_back(an);
+	}
+
+	void print_q() {
+		for (int i = 0; i < question.size(); i++) {
+			cout << question[i] << endl;
+		}
+		cout << endl;
+	}
+
+	void print_ex() {
+		for (int i = 0; i < 3; i++) {
+			cout << example[i] << endl;
+		}
+		cout << endl;
+	}
+
+	void print_an() {
+		for (int i = 0; i < answer.size(); i++) {
+			cout << answer[i] << endl;
+		}
+		cout << endl;
+	}
+
+	int solve_answer(string a) {
+		for (int i = 0; i < answer.size(); i++) {
+			if (a == answer[i]) {
+				correct++;
+			}
+		}
+		return correct;
+	}
 };

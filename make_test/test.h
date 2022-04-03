@@ -5,12 +5,6 @@
 
 using namespace std;
 
-/*테스트의 특징을 모아둔 클래스
-필요한 변수
-1. 지문
-2. 보기
-3. 정답*/
-
 class test {
 protected:
 	vector<string> question;

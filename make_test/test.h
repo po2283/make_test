@@ -15,7 +15,7 @@ class test {
 protected:
 	vector<string> question;
 	vector<vector<string>> example;
-	vector<string> answer;
+	vector<int> answer;
 	int correct;
 
 public:
@@ -47,7 +47,7 @@ public:
 			cout << "보기를 입력하시오" << endl;
 			for (int j = 0; j < 3; j++) {
 				cout << ex_num << ") ";
-				cin >> ex;
+				getline(cin, ex);
 				r_example.push_back(ex);
 				ex_num++;
 			}
@@ -59,7 +59,7 @@ public:
 	}
 
 	void have_answer() {
-		string an;
+		int an;
 		cout << "정답을 입력하시오: " << endl;
 		cin >> an;
 		answer.push_back(an);
@@ -86,7 +86,7 @@ public:
 		cout << endl;
 	}
 
-	void solve_answer(string a, int current) {
+	void solve_answer(int a, int current) {
 		if (a == answer[current]) {
 			correct++;
 		}
@@ -97,7 +97,7 @@ public:
 	}
 
 	void solve_problem(int num) {
-		string s_an;
+		int s_an;
 		int score;
 		int i = 0;
 		int current_num = 1;

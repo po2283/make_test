@@ -47,7 +47,9 @@ public:
 			cout << "보기를 입력하시오" << endl;
 			for (int j = 0; j < 3; j++) {
 				cout << ex_num << ") ";
-				cin >> ex;
+				//cin.ignore();
+				getline(cin, ex);
+				//cin >> ex;
 				r_example.push_back(ex);
 				ex_num++;
 			}
@@ -61,7 +63,9 @@ public:
 	void have_answer() {
 		string an;
 		cout << "정답을 입력하시오: " << endl;
-		cin >> an;
+		cin.ignore();
+		getline(cin, an);
+		//cin >> an;
 		answer.push_back(an);
 	}
 
@@ -87,7 +91,7 @@ public:
 	}
 
 	void solve_answer(string a, int current) {
-		if (a == answer[current]) {
+		if (a.compare(answer[current]) == 0) {
 			correct++;
 		}
 	}

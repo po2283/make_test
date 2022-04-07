@@ -37,22 +37,19 @@ public:
 		question.push_back(q);
 	}
 
-	void have_example(int num) {
+	void have_example(int num, int ex_num) {
 		string ex;
 		vector<string> r_example;
 		int current_num = 0;
-		int ex_num = 1;
 		
 		for (int i = current_num; i < num; i++) {
 			cout << "보기를 입력하시오" << endl;
-			for (int j = 0; j < 3; j++) {
-				cout << ex_num << ") ";
+			for (int j = 0; j < ex_num; j++) {
+				cout << j+1 << ") ";
 				getline(cin, ex);
 				r_example.push_back(ex);
-				ex_num++;
 			}
 			example.push_back(r_example);
-			ex_num = 1;
 			current_num++;
 			break;
 		}
@@ -71,8 +68,8 @@ public:
 		cout << endl;
 	}
 
-	void print_ex(int current) {
-		for (int i = 0; i < 3; i++) {
+	void print_ex(int current, int ex_num) {
+		for (int i = 0; i < ex_num; i++) {
 			cout << i+1 << ") ";
 			cout << example[current][i] << endl;
 		}
@@ -96,7 +93,7 @@ public:
 		cout << "당신의 점수는 " << correct;
 	}
 
-	void solve_problem(int num) {
+	void solve_problem(int num, int ex_num) {
 		int s_an;
 		int score;
 		int i = 0;
@@ -108,7 +105,7 @@ public:
 
 		while (i != num) {
 			print_q(i, current_num);
-			print_ex(i);
+			print_ex(i, ex_num);
 
 			cout << "정답을 입력하세오: ";
 			cin >> s_an;

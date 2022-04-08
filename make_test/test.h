@@ -1,7 +1,10 @@
 #pragma once
+
 #include <string>
 #include<vector>
 #include<iostream>
+#include<windows.h>
+#include<fstream>
 
 using namespace std;
 
@@ -12,13 +15,14 @@ using namespace std;
 3. 정답*/
 
 class test {
-protected:
+public:
+//protected:
 	vector<string> question;
 	vector<vector<string>> example;
 	vector<int> answer;
 	int correct;
+	ofstream testt;
 
-public:
 
 	test(){
 		correct = 0;
@@ -35,6 +39,9 @@ public:
 		cin.ignore();
 		getline(cin, q);
 		question.push_back(q);
+		testt.open("testt.txt");
+		testt << q << endl;
+		testt.close();
 	}
 
 	void have_example(int num, int ex_num) {
@@ -58,14 +65,16 @@ public:
 	void have_answer() {
 		int an;
 		cout << "정답을 입력하시오: " << endl;
-		cin >> an;
+	cin >> an;
 		answer.push_back(an);
 	}
 
-	void print_q(int current, int current_num) {
+	void print_q(int current) {
+		int current_num = 1;
 		cout << current_num << "번" << endl;
 		cout << question[current] << endl;
 		cout << endl;
+		current_num++;
 	}
 
 	void print_ex(int current, int ex_num) {
@@ -81,41 +90,6 @@ public:
 			cout << answer[i] << endl;
 		}
 		cout << endl;
-	}
-
-	void solve_answer(int a, int current) {
-		if (a == answer[current]) {
-			correct++;
-		}
-	}
-
-	void show_score() {
-		cout << "당신의 점수는 " << correct;
-	}
-
-	void solve_problem(int num, int ex_num) {
-		int s_an;
-		int score;
-		int i = 0;
-		int current_num = 1;
-
-		cout << "문제를 확인합니다..." << endl;
-		Sleep(1000);
-		system("cls");
-
-		while (i != num) {
-			print_q(i, current_num);
-			print_ex(i, ex_num);
-
-			cout << "정답을 입력하세오: ";
-			cin >> s_an;
-			solve_answer(s_an, i);
-			cout << endl;
-			system("cls");
-			i++;
-			current_num++;
-		}
-		
 	}
 
 

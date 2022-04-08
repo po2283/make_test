@@ -142,6 +142,7 @@
     <ClCompile Include="make_test.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="solve.h" />
     <ClInclude Include="test.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

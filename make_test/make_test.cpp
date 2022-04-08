@@ -2,17 +2,20 @@
 #include <vector>
 #include <windows.h>
 #include "test.h"
+#include "solve.h"
+#include <fstream>
 
 using namespace std;
 
 int main()
 {
-
     int c;
     test user_question;
     int num;
     int current_num = 1;
     int ex_num = 0;
+    solve user_slove;
+    
 
    cout << "풀 문제의 수를 입력하시오: ";
     cin >> num;
@@ -36,12 +39,13 @@ int main()
         current_num++;
     }
 
+  
     cout << "문제를 풀고 싶으면 1을 입력하세요: " << endl;
     cin >> c;
 
     if (c == 1) {
-        user_question.solve_problem(num, ex_num);
-        user_question.show_score();
+        user_slove.solve_problem(num, ex_num);
+        user_slove.show_score();
     }
     else {
         cout << "No?";

@@ -21,14 +21,14 @@ int main()
     cin >> ex_num;
     system("cls");
 
-    for (int i = 0; i < num; i++) {
+    for (int i = 1; i <= num; i++) {
         user_question.have_question(current_num);
         cout << endl;
 
-        user_question.have_example(num, ex_num);
+        user_question.have_example(i, num, ex_num);
         cout << endl;
 
-        user_question.have_answer();
+        user_question.have_answer(current_num);
         cout << endl;
 
         system("cls");
